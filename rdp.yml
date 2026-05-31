@@ -8,9 +8,11 @@ jobs:
     steps:
       - name: Download and Extract ngrok
         run: |
-          Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+          # تحميل النسخة المستقرة الرسمية لويندوز 64-بت
+          Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
           Expand-Archive ngrok.zip -DestinationPath .
-          ./ngrok.exe authtoken 2x6EKEY0TSXBx751xi7vJs6oHPX_2Lqv624jHCRBT6MhPSf48
+          # التحقق من وجود الملف لتفادي الأخطاء
+          ./ngrok.exe authtoken 2x6EKEY0TSXBx751xi7vJs6oHPX_2Lqv624jHCRBT6MhPSf
 
       - name: Enable RDP
         run: |
